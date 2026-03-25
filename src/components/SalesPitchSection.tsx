@@ -151,7 +151,7 @@ export default function SalesPitchSection() {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${COUNT * 70}vh` }}
+      style={{ height: "250vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Progress bar — transparent track */}
