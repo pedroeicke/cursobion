@@ -16,39 +16,34 @@ const ICON_IMAGES = [
 
 export default function ForWhomSection() {
   return (
-    <section id="paraquem" className="noise relative overflow-hidden py-20 md:py-28">
-      {/* Background glows */}
-      <div className="glow-blob absolute -right-40 top-0 h-[500px] w-[500px] bg-gold/6" />
-      <div className="glow-blob absolute -left-40 bottom-0 h-[400px] w-[400px] bg-gold/5" />
-
-      <div className="relative z-10 mx-auto max-w-[1000px] px-6">
+    <section id="paraquem" className="relative overflow-hidden py-20 md:py-24">
+      <div className="relative z-10 mx-auto max-w-[960px] px-6">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="mb-12"
         >
           <h2 className="section-heading">
             Para quem é o{" "}
-            <span className="shimmer-text">Curso?</span>
+            <span className="text-gold">Curso?</span>
           </h2>
         </motion.div>
 
         {/* 2-column grid */}
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-3 md:grid-cols-2">
           {FOR_WHO.items.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="flex items-center gap-5 rounded-2xl border border-[#1f1f1f] bg-[#111111]/80 px-5 py-5 transition-colors hover:border-gold/15"
+              transition={{ duration: 0.35, delay: i * 0.05 }}
+              className="flex items-center gap-4 rounded-2xl border border-[#1c1c1c] bg-[#111]/60 px-5 py-4 transition-colors hover:border-gold/10"
             >
-              {/* Square image — like CNP illustrations */}
-              <div className="relative h-[72px] w-[72px] flex-shrink-0 overflow-hidden rounded-xl">
+              <div className="relative h-[64px] w-[64px] flex-shrink-0 overflow-hidden rounded-xl">
                 <Image
                   src={ICON_IMAGES[i] || ICON_IMAGES[0]}
                   alt=""
@@ -56,9 +51,7 @@ export default function ForWhomSection() {
                   className="object-cover"
                 />
               </div>
-
-              {/* Text — italic like CNP */}
-              <p className="text-[15px] font-medium italic leading-snug text-gray-light">
+              <p className="text-[14px] font-medium leading-snug text-gray-light">
                 {item.text}
               </p>
             </motion.div>

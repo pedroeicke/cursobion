@@ -8,46 +8,39 @@ export default function TestimonialsSection() {
   const items = [...TESTIMONIALS.items, ...TESTIMONIALS.items, ...TESTIMONIALS.items];
 
   return (
-    <section className="noise relative overflow-hidden py-20 md:py-28">
+    <section className="relative overflow-hidden py-20 md:py-24">
       <div className="relative z-10">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="mb-4 px-6"
         >
           <h2 className="section-heading">{TESTIMONIALS.title}</h2>
           <p className="section-sub mt-3">{TESTIMONIALS.subtitle}</p>
         </motion.div>
 
-        {/* Carousel — like CNP testimonials */}
-        <div className="mt-12 scrollbar-hide w-full overflow-hidden">
+        <div className="mt-10 scrollbar-hide w-full overflow-hidden">
           <div className="testimonial-track">
             {items.map((t, i) => (
               <div
                 key={i}
-                className="frame w-[320px] flex-shrink-0 sm:w-[360px]"
+                className="w-[300px] flex-shrink-0 rounded-2xl border border-[#1c1c1c] bg-[#111] p-6 sm:w-[340px]"
               >
-                {/* Stars */}
-                <div className="mb-4 flex gap-0.5">
+                <div className="mb-3 flex gap-0.5">
                   {Array.from({ length: t.stars }).map((_, s) => (
-                    <Star key={s} className="h-4 w-4 fill-gold text-gold" />
+                    <Star key={s} className="h-3.5 w-3.5 fill-gold text-gold" />
                   ))}
                 </div>
-
-                {/* Quote */}
-                <p className="mb-6 text-[15px] leading-relaxed text-gray-light">
+                <p className="mb-5 text-[14px] leading-relaxed text-[#aaa]">
                   &ldquo;{t.text}&rdquo;
                 </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-3 border-t border-dark-border pt-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-sm font-bold text-gold">
+                <div className="flex items-center gap-3 border-t border-[#1c1c1c] pt-4">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 text-xs font-bold text-gold">
                     {t.initials}
                   </div>
-                  <span className="font-semibold text-white">{t.name}</span>
+                  <span className="text-sm font-semibold text-white">{t.name}</span>
                 </div>
               </div>
             ))}

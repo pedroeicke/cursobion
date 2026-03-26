@@ -11,23 +11,20 @@ import LeadFaqSection from "@/components/LeadFaqSection";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
 import WhatsappButton from "@/components/WhatsappButton";
-import CanvasParticles from "@/components/CanvasParticles";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      <CanvasParticles />
-
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Sales pitch — texto de vendas completo */}
+      {/* 2. Sales pitch */}
       <SalesPitchSection />
 
-      {/* 3. For whom — card grid */}
+      {/* 3. For whom */}
       <ForWhomSection />
 
-      {/* 4. What you'll learn — video + topics */}
+      {/* 4. What you'll learn */}
       <WhatYouLearnSection />
 
       {/* 5. Module carousel */}

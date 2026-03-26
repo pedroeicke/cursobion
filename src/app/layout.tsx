@@ -17,20 +17,20 @@ const roboto = Roboto_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Guia Prático de Auto Manutenção em Prótese Capilar | Rafael Bion",
+  title: "Curso de Prótese Capilar Profissional | Rafael Bion",
   description:
-    "Aprenda a fazer sua própria manutenção de prótese capilar com segurança, economia e autonomia. Passo a passo completo por Rafael Bion.",
+    "Torne-se um especialista em prótese capilar. Curso completo com Rafael Bion — mais de 10 anos de experiência transformando vidas.",
   keywords: [
     "prótese capilar",
-    "manutenção prótese capilar",
-    "auto manutenção capilar",
-    "Rafael Bion",
     "curso prótese capilar",
+    "especialista prótese capilar",
+    "Rafael Bion",
+    "curso barbeiro",
   ],
   openGraph: {
-    title: "Guia Prático de Auto Manutenção em Prótese Capilar",
+    title: "Curso de Prótese Capilar Profissional | Rafael Bion",
     description:
-      "O passo a passo completo para remover, limpar e reaplicar sua prótese — sem depender de ninguém.",
+      "Domine a técnica de prótese capilar e entre em um mercado em crescimento.",
     type: "website",
   },
 };

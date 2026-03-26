@@ -13,70 +13,68 @@ export default function WhatYouLearnSection() {
 
   return (
     <>
-      <section id="conteudo" className="noise relative overflow-hidden py-20 md:py-28">
-        <div className="glow-blob absolute left-1/2 top-0 h-[300px] w-[500px] -translate-x-1/2 bg-gold/8" />
-
-        <div className="relative z-10 mx-auto max-w-[1100px] px-6">
+      <section id="conteudo" className="relative overflow-hidden py-20 md:py-24">
+        <div className="relative z-10 mx-auto max-w-[1060px] px-6">
           {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-14"
+            transition={{ duration: 0.5 }}
+            className="mb-12"
           >
             <h2 className="section-heading">O que você vai aprender</h2>
           </motion.div>
 
-          {/* Two columns: video left, topics right */}
+          {/* Two columns */}
           <div className="grid items-start gap-8 lg:grid-cols-2">
             {/* Left — Video preview */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="frame overflow-hidden p-0"
+              transition={{ duration: 0.5 }}
+              className="overflow-hidden rounded-2xl border border-[#1c1c1c] bg-[#111]"
             >
-              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#151515] to-[#0a0a0a]">
-                <div className="flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-gold/20 text-gold transition-all hover:scale-110 hover:bg-gold/30">
-                  <Play className="h-8 w-8 fill-gold" />
+              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#141414] to-[#0d0d0d]">
+                <div className="flex h-16 w-16 cursor-pointer items-center justify-center rounded-full border border-gold/20 bg-gold/10 text-gold transition-all hover:scale-105 hover:bg-gold/15">
+                  <Play className="h-6 w-6 fill-gold" />
                 </div>
-                <p className="absolute bottom-4 text-sm text-gray-text">Prévia do conteúdo</p>
+                <p className="absolute bottom-4 text-xs text-gray-text">Prévia do conteúdo</p>
               </div>
-              <div className="flex items-center justify-between border-t border-dark-border px-6 py-4">
+              <div className="flex items-center justify-between border-t border-[#1c1c1c] px-5 py-3.5">
                 <div>
-                  <p className="font-semibold text-white">8 módulos práticos</p>
+                  <p className="text-sm font-semibold text-white">8 módulos práticos</p>
                   <p className="text-xs text-gray-text">Assista no seu ritmo</p>
                 </div>
-                <span className="rounded-full bg-gold/10 px-3 py-1 text-xs font-bold text-gold">
+                <span className="rounded-full bg-gold/8 px-3 py-1 text-xs font-semibold text-gold">
                   1 ano de acesso
                 </span>
               </div>
             </motion.div>
 
-            {/* Right — 3 topics (no cards, just image + text) + VER MAIS */}
-            <div className="space-y-6">
+            {/* Right — 3 topics + VER MAIS */}
+            <div className="space-y-5">
               {MODULES.items.slice(0, 3).map((mod, i) => (
                 <motion.div
                   key={mod.title}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 15 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.12 }}
-                  className="flex items-center gap-5"
+                  transition={{ duration: 0.35, delay: i * 0.1 }}
+                  className="flex items-center gap-4"
                 >
-                  <div className="relative h-[64px] w-[64px] flex-shrink-0 overflow-hidden rounded-xl">
+                  <div className="relative h-[56px] w-[56px] flex-shrink-0 overflow-hidden rounded-xl">
                     <Image
                       src={TOPIC_IMAGES[i]}
                       alt=""
                       fill
                       className="object-cover"
-                      sizes="64px"
+                      sizes="56px"
                     />
                   </div>
                   <div>
-                    <h3 className="text-[16px] font-bold text-white">{mod.title}</h3>
+                    <h3 className="text-[15px] font-bold text-white">{mod.title}</h3>
                     <p className="text-sm text-gray-text">{mod.description}</p>
                   </div>
                 </motion.div>
@@ -100,18 +98,18 @@ export default function WhatYouLearnSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
             onClick={() => setPopupOpen(false)}
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.97, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full max-w-[800px] rounded-3xl border border-[#1f1f1f] bg-[#0a0a0a] p-8 md:p-10"
+              exit={{ opacity: 0, scale: 0.97, y: 15 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-full max-w-[760px] rounded-2xl border border-[#1c1c1c] bg-[#0d0d0d] p-8 md:p-10"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -121,13 +119,15 @@ export default function WhatYouLearnSection() {
                 <X className="h-4 w-4" />
               </button>
 
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <h3 className="mb-6 text-xl font-bold text-white">Todos os módulos</h3>
+
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {MODULES.items.map((mod, i) => (
                   <div key={i}>
-                    <h3 className="mb-2 text-base font-bold text-white">
-                      {mod.title}:
+                    <h3 className="mb-1.5 text-sm font-bold text-white">
+                      {mod.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-gray-text">
+                    <p className="text-[13px] leading-relaxed text-gray-text">
                       {mod.description}
                     </p>
                   </div>

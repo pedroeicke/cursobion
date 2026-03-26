@@ -10,12 +10,12 @@ const SLIDES = [
     gold: false,
   },
   {
-    tag: "Pense comigo…",
+    tag: "Pense comigo\u2026",
     text: "Um barbeiro tradicional precisa fazer 8, 10 ou até mais cortes por dia, cobrando entre R$30 e R$50, para ter um faturamento razoável. É uma rotina cansativa, corrida e muitas vezes limitada.",
     gold: false,
   },
   {
-    tag: "Agora imagine…",
+    tag: "Agora imagine\u2026",
     text: "Dominar uma técnica que permite você realizar uma única aplicação e faturar muito mais do que vários cortes somados. Manutenções recorrentes de R$120 a R$150 ou mais, criando um fluxo constante de renda mensal.",
     gold: true,
   },
@@ -49,25 +49,19 @@ function Slide({
   scrollYProgress: MotionValue<number>;
 }) {
   const oneSlide = 1 / COUNT;
-
-  // Each slide gets a segment of the scroll
-  // Enter from right → sit in center → leave to left
   const start = index * oneSlide;
   const enterDone = start + oneSlide * 0.25;
   const exitStart = start + oneSlide * 0.75;
   const end = (index + 1) * oneSlide;
 
-  // x: 80vw → 0 → 0 → -80vw
+  const isFirst = index === 0;
+  const isLast = index === COUNT - 1;
+
   const x = useTransform(
     scrollYProgress,
     [start, enterDone, exitStart, end],
     ["60vw", "0vw", "0vw", "-60vw"]
   );
-
-  // opacity: 0 → 1 → 1 → 0
-  // First slide starts visible, last slide stays visible
-  const isFirst = index === 0;
-  const isLast = index === COUNT - 1;
 
   const opacity = useTransform(
     scrollYProgress,
@@ -75,7 +69,6 @@ function Slide({
     [isFirst ? 1 : 0, 1, 1, isLast ? 1 : 0]
   );
 
-  // First slide starts centered, last slide stays centered
   const finalX = isFirst
     ? useTransform(
         scrollYProgress,
@@ -95,11 +88,11 @@ function Slide({
       className="absolute inset-0 flex items-center justify-center"
       style={{ x: finalX, opacity }}
     >
-      <div className="w-full max-w-[560px] px-8">
+      <div className="w-full max-w-[540px] px-8">
         {/* Tag */}
         <p
-          className={`mb-6 text-xs font-bold uppercase tracking-[0.25em] ${
-            slide.gold ? "text-gold" : "text-gold/40"
+          className={`mb-5 text-[11px] font-semibold uppercase tracking-[0.2em] ${
+            slide.gold ? "text-gold" : "text-gold/50"
           }`}
         >
           {slide.tag}
@@ -107,7 +100,7 @@ function Slide({
 
         {/* Text */}
         <p
-          className={`text-[clamp(20px,3.5vw,30px)] font-medium leading-[1.5] ${
+          className={`text-[clamp(18px,3vw,26px)] font-medium leading-[1.6] ${
             slide.gold ? "text-white" : "text-gray-light"
           }`}
         >
@@ -122,12 +115,12 @@ function Slide({
         )}
 
         {/* Dots */}
-        <div className="mt-12 flex items-center gap-2">
+        <div className="mt-10 flex items-center gap-2">
           {SLIDES.map((_, j) => (
             <div
               key={j}
-              className={`h-[3px] rounded-full transition-all duration-300 ${
-                j === index ? "w-8 bg-gold" : "w-2 bg-[#222]"
+              className={`h-[2px] rounded-full transition-all duration-300 ${
+                j === index ? "w-6 bg-gold" : "w-2 bg-[#2a2a2a]"
               }`}
             />
           ))}
@@ -145,8 +138,6 @@ export default function SalesPitchSection() {
     offset: ["start start", "end end"],
   });
 
-  const progress = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
   return (
     <section
       ref={sectionRef}
@@ -154,15 +145,10 @@ export default function SalesPitchSection() {
       style={{ height: "250vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Progress bar — transparent track */}
-        <div className="absolute left-6 right-6 top-8 z-20 h-[2px] rounded-full bg-transparent md:left-12 md:right-12">
-          <motion.div
-            className="h-full rounded-full bg-gold/30"
-            style={{ width: progress }}
-          />
-        </div>
+        {/* Subtle top line */}
+        <div className="absolute inset-x-0 top-0 z-20 h-[1px] bg-gradient-to-r from-transparent via-[#1c1c1c] to-transparent" />
 
-        {/* Stacked slides — each animates independently */}
+        {/* Stacked slides */}
         <div className="relative h-full w-full">
           {SLIDES.map((slide, i) => (
             <Slide

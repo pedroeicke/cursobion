@@ -16,20 +16,20 @@ const BIO_TEXT = [
 
 export default function InstructorSection() {
   return (
-    <section className="noise relative overflow-hidden py-20 md:py-28">
+    <section className="relative overflow-hidden py-20 md:py-24">
       <div className="relative z-10 mx-auto max-w-[1070px] px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="overflow-hidden rounded-[24px] border border-[#1f1f1f]"
+          transition={{ duration: 0.5 }}
+          className="overflow-hidden rounded-2xl border border-[#1c1c1c]"
         >
-          {/* DESKTOP: text left + image right side by side */}
+          {/* DESKTOP: text left + image right */}
           <div className="relative hidden md:flex" style={{ minHeight: "auto" }}>
-            {/* LEFT — text */}
-            <div className="relative z-10 flex w-1/2 flex-col justify-center bg-[#0a0a0a] p-10">
-              <h2 className="mb-5 text-[clamp(22px,3vw,32px)] font-bold italic leading-[1.1] text-white">
+            <div className="relative z-10 flex w-1/2 flex-col justify-center bg-[#0d0d0d] p-10">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">Instrutor</p>
+              <h2 className="mb-5 text-[clamp(22px,3vw,30px)] font-bold leading-[1.1] text-white">
                 Quem será<br />seu professor?
               </h2>
 
@@ -38,9 +38,7 @@ export default function InstructorSection() {
                   <p
                     key={i}
                     className={`text-[13px] leading-[1.7] ${
-                      i === 3
-                        ? "font-bold italic text-gold"
-                        : "text-gray-light"
+                      i === 3 ? "font-bold text-gold" : "text-[#aaa]"
                     }`}
                     style={{ whiteSpace: "pre-line" }}
                   >
@@ -49,8 +47,7 @@ export default function InstructorSection() {
                 ))}
               </div>
 
-              {/* Signature */}
-              <div className="mt-5 border-t border-dark-border pt-4">
+              <div className="mt-5 border-t border-[#1c1c1c] pt-4">
                 <p className="text-sm font-bold text-white">Rafael Bion</p>
                 <p className="text-[11px] text-gray-text">
                   Especialista em Prótese Capilar há mais de 10 anos
@@ -58,7 +55,6 @@ export default function InstructorSection() {
               </div>
             </div>
 
-            {/* RIGHT — image */}
             <div className="relative w-1/2">
               <Image
                 src="/professor.png"
@@ -68,13 +64,12 @@ export default function InstructorSection() {
                 sizes="535px"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-transparent to-transparent" />
             </div>
           </div>
 
           {/* MOBILE: image on top, text below */}
           <div className="flex flex-col md:hidden">
-            {/* Image — tall and prominent */}
             <div className="relative aspect-[3/4] w-full">
               <Image
                 src="/professor.png"
@@ -84,12 +79,12 @@ export default function InstructorSection() {
                 sizes="100vw"
                 quality={90}
               />
-              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
             </div>
 
-            {/* Text — pushed down with negative margin to overlap image slightly */}
-            <div className="-mt-8 relative z-10 bg-[#0a0a0a] px-6 pb-6 pt-10 sm:px-8 sm:pb-8">
-              <h2 className="mb-5 text-[22px] font-bold italic leading-[1.1] text-white">
+            <div className="-mt-8 relative z-10 bg-[#0d0d0d] px-6 pb-6 pt-10 sm:px-8 sm:pb-8">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">Instrutor</p>
+              <h2 className="mb-5 text-[22px] font-bold leading-[1.1] text-white">
                 Quem será<br />seu professor?
               </h2>
 
@@ -98,9 +93,7 @@ export default function InstructorSection() {
                   <p
                     key={i}
                     className={`text-[12px] leading-[1.7] ${
-                      i === 3
-                        ? "font-bold italic text-gold"
-                        : "text-gray-light"
+                      i === 3 ? "font-bold text-gold" : "text-[#aaa]"
                     }`}
                     style={{ whiteSpace: "pre-line" }}
                   >
@@ -109,7 +102,7 @@ export default function InstructorSection() {
                 ))}
               </div>
 
-              <div className="mt-5 border-t border-dark-border pt-4">
+              <div className="mt-5 border-t border-[#1c1c1c] pt-4">
                 <p className="text-sm font-bold text-white">Rafael Bion</p>
                 <p className="text-[11px] text-gray-text">
                   Especialista em Prótese Capilar há mais de 10 anos
