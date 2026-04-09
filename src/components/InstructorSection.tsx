@@ -57,12 +57,13 @@ export default function InstructorSection() {
 
             <div className="relative w-1/2">
               <Image
-                src="/professor.png"
+                src="/prof.png"
                 alt={INSTRUCTOR.name}
                 fill
-                className="object-cover object-center"
+                className="object-cover object-[center_25%]"
                 sizes="535px"
                 quality={90}
+                style={{ transform: "scale(1.3)", transformOrigin: "center 25%" }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-transparent to-transparent" />
             </div>
@@ -70,12 +71,12 @@ export default function InstructorSection() {
 
           {/* MOBILE: image on top, text below */}
           <div className="flex flex-col md:hidden">
-            <div className="relative aspect-[3/4] w-full">
+            <div className="relative aspect-[4/5] w-full">
               <Image
-                src="/professor.png"
+                src="/prof.png"
                 alt={INSTRUCTOR.name}
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[center_20%]"
                 sizes="100vw"
                 quality={90}
               />

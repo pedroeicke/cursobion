@@ -194,9 +194,9 @@ export const PRICING = {
 };
 
 export const GUARANTEE = {
-  title: "GARANTIA DE 7 DIAS",
-  subtitle: "Risco zero!",
-  text: "Você tem até 7 dias para testar o curso, assistir as aulas, e se não gostar devolvemos seu dinheiro. Simples assim.",
+  title: "7 DIAS DE GARANTIA",
+  subtitle: "",
+  text: "Se em até 7 dias você não ficar satisfeito, devolvemos 100% do seu dinheiro.",
 };
 
 export const TESTIMONIALS = {

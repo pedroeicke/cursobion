@@ -1,164 +1,147 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-
-const SLIDES = [
-  {
-    tag: "Uma nova oportunidade",
-    text: "A prótese capilar não é apenas um serviço estético. É uma das maiores oportunidades de crescimento dentro do mercado da beleza hoje.",
-    gold: false,
-  },
-  {
-    tag: "Pense comigo\u2026",
-    text: "Um barbeiro tradicional precisa fazer 8, 10 ou até mais cortes por dia, cobrando entre R$30 e R$50, para ter um faturamento razoável. É uma rotina cansativa, corrida e muitas vezes limitada.",
-    gold: false,
-  },
-  {
-    tag: "Agora imagine\u2026",
-    text: "Dominar uma técnica que permite você realizar uma única aplicação e faturar muito mais do que vários cortes somados. Manutenções recorrentes de R$120 a R$150 ou mais, criando um fluxo constante de renda mensal.",
-    gold: true,
-  },
-  {
-    tag: "Serviços de alto valor",
-    text: "Você deixa de depender apenas de volume de cortes e passa a trabalhar com serviços de alto valor.",
-    gold: false,
-  },
-  {
-    tag: "Além do financeiro",
-    text: "Quando você aplica uma prótese capilar, você devolve algo que muitos clientes perderam há anos: a autoestima, o sorriso e a confiança. Isso não tem preço.",
-    gold: false,
-  },
-  {
-    tag: "O mercado está crescendo.",
-    text: "A pergunta é: você vai assistir ou vai fazer parte dele?",
-    gold: true,
-    cta: true,
-  },
-];
-
-const COUNT = SLIDES.length;
-
-function Slide({
-  slide,
-  index,
-  scrollYProgress,
-}: {
-  slide: (typeof SLIDES)[number];
-  index: number;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const oneSlide = 1 / COUNT;
-  const start = index * oneSlide;
-  const enterDone = start + oneSlide * 0.25;
-  const exitStart = start + oneSlide * 0.75;
-  const end = (index + 1) * oneSlide;
-
-  const isFirst = index === 0;
-  const isLast = index === COUNT - 1;
-
-  const x = useTransform(
-    scrollYProgress,
-    [start, enterDone, exitStart, end],
-    ["60vw", "0vw", "0vw", "-60vw"]
-  );
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, enterDone, exitStart, end],
-    [isFirst ? 1 : 0, 1, 1, isLast ? 1 : 0]
-  );
-
-  const finalX = isFirst
-    ? useTransform(
-        scrollYProgress,
-        [start, exitStart, end],
-        ["0vw", "0vw", "-60vw"]
-      )
-    : isLast
-      ? useTransform(
-          scrollYProgress,
-          [start, enterDone, 1],
-          ["60vw", "0vw", "0vw"]
-        )
-      : x;
-
-  return (
-    <motion.div
-      className="absolute inset-0 flex items-center justify-center"
-      style={{ x: finalX, opacity }}
-    >
-      <div className="w-full max-w-[540px] px-8">
-        {/* Tag */}
-        <p
-          className={`mb-5 text-[11px] font-semibold uppercase tracking-[0.2em] ${
-            slide.gold ? "text-gold" : "text-gold/50"
-          }`}
-        >
-          {slide.tag}
-        </p>
-
-        {/* Text */}
-        <p
-          className={`text-[clamp(18px,3vw,26px)] font-medium leading-[1.6] ${
-            slide.gold ? "text-white" : "text-gray-light"
-          }`}
-        >
-          {slide.text}
-        </p>
-
-        {/* CTA on last slide */}
-        {slide.cta && (
-          <a href="#paraquem" className="btn-cta mt-10 inline-flex">
-            <span>QUERO ME TORNAR ESPECIALISTA</span>
-          </a>
-        )}
-
-        {/* Dots */}
-        <div className="mt-10 flex items-center gap-2">
-          {SLIDES.map((_, j) => (
-            <div
-              key={j}
-              className={`h-[2px] rounded-full transition-all duration-300 ${
-                j === index ? "w-6 bg-gold" : "w-2 bg-[#2a2a2a]"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+import { motion } from "framer-motion";
+import CtaButton from "./CtaButton";
+import { Scissors, TrendingUp, Clock, DollarSign, Users, Heart } from "lucide-react";
 
 export default function SalesPitchSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative"
-      style={{ height: "250vh" }}
-    >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Subtle top line */}
-        <div className="absolute inset-x-0 top-0 z-20 h-[1px] bg-gradient-to-r from-transparent via-[#1c1c1c] to-transparent" />
+    <section className="relative overflow-hidden py-20 md:py-28">
+      <div className="mx-auto max-w-[1070px] px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 max-w-[600px]"
+        >
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-gold/60">
+            Por que prótese capilar?
+          </p>
+          <h2 className="text-[clamp(24px,4vw,36px)] font-bold leading-[1.15] text-white">
+            Pare de trocar tempo por dinheiro.{" "}
+            <span className="text-gold">Comece a faturar de verdade.</span>
+          </h2>
+        </motion.div>
 
-        {/* Stacked slides */}
-        <div className="relative h-full w-full">
-          {SLIDES.map((slide, i) => (
-            <Slide
-              key={i}
-              slide={slide}
-              index={i}
-              scrollYProgress={scrollYProgress}
-            />
-          ))}
+        {/* Comparison */}
+        <div className="mb-16 grid gap-6 md:grid-cols-2">
+          {/* Before */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-[#1c1c1c] bg-[#0d0d0d] p-8"
+          >
+            <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#666]">
+              Barbeiro tradicional
+            </p>
+
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1a1a1a]">
+                  <Scissors className="h-5 w-5 text-[#555]" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#888]">8 a 10 cortes por dia</p>
+                  <p className="text-xs text-[#555]">Rotina cansativa e corrida</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1a1a1a]">
+                  <DollarSign className="h-5 w-5 text-[#555]" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#888]">R$30 a R$50 por corte</p>
+                  <p className="text-xs text-[#555]">Faturamento limitado pelo volume</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#1a1a1a]">
+                  <Clock className="h-5 w-5 text-[#555]" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#888]">~R$400/dia no máximo</p>
+                  <p className="text-xs text-[#555]">Teto baixo, dependência total de volume</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* After */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-gold/20 bg-gold/[0.03] p-8"
+          >
+            <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
+              Especialista em prótese capilar
+            </p>
+
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gold/10">
+                  <TrendingUp className="h-5 w-5 text-gold" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">1 aplicação = R$300+</p>
+                  <p className="text-xs text-[#aaa]">Serviço de alto valor em 2 horas</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gold/10">
+                  <DollarSign className="h-5 w-5 text-gold" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">Manutenções de R$120 a R$150</p>
+                  <p className="text-xs text-[#aaa]">Renda recorrente todo mês</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gold/10">
+                  <Users className="h-5 w-5 text-gold" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">Clientes fiéis e recorrentes</p>
+                  <p className="text-xs text-[#aaa]">Agenda cheia sem depender de volume</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bottom emotional block */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-[640px] text-center"
+        >
+          <div className="mb-6 flex justify-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10">
+              <Heart className="h-6 w-6 text-gold" />
+            </div>
+          </div>
+          <p className="mb-4 text-[16px] leading-[1.8] text-[#aaa]">
+            Quando você aplica uma prótese capilar, você devolve algo que muitos
+            clientes perderam há anos:{" "}
+            <strong className="text-white">
+              a autoestima, o sorriso e a confiança.
+            </strong>
+          </p>
+          <p className="mb-8 text-[clamp(18px,3vw,24px)] font-bold leading-[1.4] text-white">
+            O mercado está crescendo.{" "}
+            <span className="text-gold">
+              Você vai assistir ou vai fazer parte dele?
+            </span>
+          </p>
+          <CtaButton>QUERO ME TORNAR ESPECIALISTA</CtaButton>
+        </motion.div>
       </div>
     </section>
   );

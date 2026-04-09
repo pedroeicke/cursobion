@@ -11,6 +11,7 @@ import LeadFaqSection from "@/components/LeadFaqSection";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
 import WhatsappButton from "@/components/WhatsappButton";
+import SocialProofToast from "@/components/SocialProofToast";
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
       {/* Fixed elements */}
       <StickyBar />
       <WhatsappButton />
+      <SocialProofToast />
     </main>
   );
 }

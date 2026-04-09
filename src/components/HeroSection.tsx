@@ -11,7 +11,7 @@ export default function HeroSection() {
       {/* BG image — desktop */}
       <div className="absolute inset-0 md:block">
         <Image
-          src="/herobion44.png"
+          src="/herook.png"
           alt="Rafael Bion"
           fill
           priority
@@ -21,7 +21,7 @@ export default function HeroSection() {
         {/* Mobile: image at top */}
         <div className="relative h-[55vh] w-full md:hidden">
           <Image
-            src="/herobion44.png"
+            src="/herook.png"
             alt="Rafael Bion"
             fill
             priority
@@ -36,26 +36,19 @@ export default function HeroSection() {
       <div className="absolute inset-0 hidden bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent md:block" />
 
       <div className="relative z-10 flex min-h-screen items-end pb-12 -mt-24 md:mt-0 md:items-center md:pb-0">
-        <div className="w-full max-w-[520px] px-6 md:ml-[80px] md:px-0 lg:ml-[314px]">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mb-5 flex items-center gap-2"
-          >
-            <span className="h-[1px] w-8 bg-gold" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{HERO.badge}</span>
-          </motion.div>
-
+        <div className="w-full max-w-[640px] px-6 md:ml-[120px] md:px-0 lg:ml-[220px]">
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-5 text-[clamp(28px,5vw,44px)] font-bold leading-[1.1]"
+            className="mb-5 text-[clamp(28px,5vw,44px)] font-bold leading-[1.4]"
           >
-            {HERO.headline}
+            Transforme sua profissão.
+            <br />
+            Transforme sua renda.
+            <br />
+            Transforme vidas.
           </motion.h1>
 
           {/* Sub */}
@@ -78,14 +71,34 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Social proof */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-4 text-sm text-gray-text"
+            className="mt-6 flex items-center gap-3"
           >
-            Junte-se a mais de 500 alunos
-          </motion.p>
+            <div className="flex -space-x-3">
+              {[
+                "https://randomuser.me/api/portraits/men/32.jpg",
+                "https://randomuser.me/api/portraits/men/45.jpg",
+                "https://randomuser.me/api/portraits/men/22.jpg",
+                "https://randomuser.me/api/portraits/men/55.jpg",
+                "https://randomuser.me/api/portraits/men/67.jpg",
+              ].map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt="Aluno"
+                  width={36}
+                  height={36}
+                  className="rounded-full border-2 border-[#0a0a0a] object-cover"
+                />
+              ))}
+            </div>
+            <span className="text-sm text-gray-light">
+              Junte-se a <strong className="text-white">+500 alunos</strong>
+            </span>
+          </motion.div>
         </div>
       </div>
     </section>
