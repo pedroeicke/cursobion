@@ -52,9 +52,9 @@ export default function PricingSection() {
             className="frame text-center"
           >
             <p className="mb-1 text-sm text-gray-text">por apenas</p>
-            <p className="mb-2 flex items-baseline justify-center gap-2 text-white">
-              <span className="text-xl font-light text-gray-text md:text-2xl">12x de</span>
-              <span className="text-5xl font-extrabold md:text-6xl">R$ 102,98</span>
+            <p className="mb-2 flex flex-nowrap items-baseline justify-center gap-2 text-white">
+              <span className="whitespace-nowrap text-base font-light text-gray-text sm:text-xl md:text-2xl">12x de</span>
+              <span className="whitespace-nowrap text-3xl font-extrabold sm:text-5xl md:text-6xl">R$ 102,98</span>
             </p>
             <p className="mb-8 text-sm text-gray-text">
               ou <span className="font-bold text-gold">{PRICING.price}</span> à vista
