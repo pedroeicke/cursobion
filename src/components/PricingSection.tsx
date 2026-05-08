@@ -51,12 +51,10 @@ export default function PricingSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="frame text-center"
           >
-            <p className="mb-2 text-sm text-gray-text">
-              De <span className="price-old text-lg">{PRICING.originalPrice}</span>
-            </p>
             <p className="mb-1 text-sm text-gray-text">por apenas</p>
-            <p className="mb-2 text-5xl font-extrabold text-white md:text-6xl">
-              12x R$ 30,72
+            <p className="mb-2 flex items-baseline justify-center gap-2 text-white">
+              <span className="text-xl font-light text-gray-text md:text-2xl">12x de</span>
+              <span className="text-5xl font-extrabold md:text-6xl">R$ 102,98</span>
             </p>
             <p className="mb-8 text-sm text-gray-text">
               ou <span className="font-bold text-gold">{PRICING.price}</span> à vista

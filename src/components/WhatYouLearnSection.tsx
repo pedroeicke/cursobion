@@ -36,11 +36,17 @@ export default function WhatYouLearnSection() {
               transition={{ duration: 0.5 }}
               className="overflow-hidden rounded-2xl border border-[#1c1c1c] bg-[#111]"
             >
-              <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-[#141414] to-[#0d0d0d]">
-                <div className="flex h-16 w-16 cursor-pointer items-center justify-center rounded-full border border-gold/20 bg-gold/10 text-gold transition-all hover:scale-105 hover:bg-gold/15">
-                  <Play className="h-6 w-6 fill-gold" />
-                </div>
-                <p className="absolute bottom-4 text-xs text-gray-text">Prévia do conteúdo</p>
+              <div className="relative aspect-video">
+                <video
+                  className="h-full w-full object-cover"
+                  controls
+                  preload="metadata"
+                  poster=""
+                >
+                  <source src="/boas-vindas.mov" type="video/quicktime" />
+                  <source src="/boas-vindas.mov" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
               </div>
               <div className="flex items-center justify-between border-t border-[#1c1c1c] px-5 py-3.5">
                 <div>

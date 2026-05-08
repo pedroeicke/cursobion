@@ -2,9 +2,9 @@ export const SITE_CONFIG = {
   title: "Curso de Prótese Capilar Profissional | Rafael Bion",
   description:
     "Torne-se especialista em prótese capilar. Curso completo do zero ao profissional com Rafael Bion — mais de 10 anos de experiência transformando vidas.",
-  checkoutUrl: "#checkout",
-  whatsappUrl: "https://wa.me/5500000000000",
-  whatsappNumber: "00 00000-0000",
+  checkoutUrl: "https://pay.cakto.com.br/34nqnwb_877268",
+  whatsappUrl: "http://wa.me/5548999706214",
+  whatsappNumber: "48 99970-6214",
   supportEmail: "suporterafaelbion@gmail.com",
 };
 
@@ -186,9 +186,9 @@ export const PRICING = {
     "Comunidade exclusiva de profissionais",
     "Suporte personalizado com Rafael Bion",
   ],
-  originalPrice: "R$ 497,00",
-  price: "R$ 297",
-  installments: "ou 12x de R$ 30,72",
+  originalPrice: "",
+  price: "R$ 997",
+  installments: "12x R$ 102,98",
   accessPeriod: "1 ano de acesso",
   cta: "CLIQUE AQUI PARA SE INSCREVER",
 };
@@ -196,7 +196,7 @@ export const PRICING = {
 export const GUARANTEE = {
   title: "7 DIAS DE GARANTIA",
   subtitle: "",
-  text: "Se em até 7 dias você não ficar satisfeito, devolvemos 100% do seu dinheiro.",
+  text: "",
 };
 
 export const TESTIMONIALS = {

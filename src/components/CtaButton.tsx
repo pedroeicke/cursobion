@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
 
 interface CtaButtonProps {
@@ -17,11 +16,13 @@ export default function CtaButton({
   className = "",
 }: CtaButtonProps) {
   return (
-    <Link
+    <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`btn-cta ${floating ? "btn-cta-floating" : ""} ${className}`}
     >
       <span>{children}</span>
-    </Link>
+    </a>
   );
 }
