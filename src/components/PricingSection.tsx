@@ -51,10 +51,17 @@ export default function PricingSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="frame text-center"
           >
-            <p className="mb-1 text-sm text-gray-text">por apenas</p>
+            <p className="mb-1 text-sm uppercase tracking-wide text-gray-text">De</p>
+            <div className="mb-1 inline-block">
+              <span className="relative inline-block text-3xl font-bold text-gray-light/60 sm:text-4xl">
+                {PRICING.originalPrice}
+                <span className="pointer-events-none absolute inset-x-[-4px] top-1/2 h-[3px] -translate-y-1/2 -rotate-[8deg] rounded-full bg-red-600" />
+              </span>
+            </div>
+            <p className="mb-2 text-sm text-gray-text">por apenas</p>
             <p className="mb-2 flex flex-nowrap items-baseline justify-center gap-2 text-white">
               <span className="whitespace-nowrap text-base font-light text-gray-text sm:text-xl md:text-2xl">12x de</span>
-              <span className="whitespace-nowrap text-3xl font-extrabold sm:text-5xl md:text-6xl">R$ 102,98</span>
+              <span className="whitespace-nowrap text-3xl font-extrabold sm:text-5xl md:text-6xl">R$ 41,01</span>
             </p>
             <p className="mb-8 text-sm text-gray-text">
               ou <span className="font-bold text-gold">{PRICING.price}</span> à vista

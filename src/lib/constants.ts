@@ -186,9 +186,9 @@ export const PRICING = {
     "Comunidade exclusiva de profissionais",
     "Suporte personalizado com Rafael Bion",
   ],
-  originalPrice: "",
-  price: "R$ 997",
-  installments: "12x R$ 102,98",
+  originalPrice: "R$ 997",
+  price: "R$ 397",
+  installments: "12x R$ 41,01",
   accessPeriod: "1 ano de acesso",
   cta: "CLIQUE AQUI PARA SE INSCREVER",
 };
